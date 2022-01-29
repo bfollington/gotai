@@ -1,0 +1,74 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx24q2pknltw0"]
+
+[ext_resource type="Script" path="res://counter.gd" id="1_2ji5a"]
+[ext_resource type="Script" path="res://timer.gd" id="2_dfu3g"]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="_state" type="Control" parent="."]
+offset_right = 780.0
+offset_bottom = 385.0
+script = ExtResource( "1_2ji5a" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="_state"]
+offset_right = 1256.0
+offset_bottom = 792.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="_state"]
+offset_left = 96.0
+offset_top = 79.0
+offset_right = 696.0
+offset_bottom = 268.0
+theme_override_font_sizes/font_size = 100
+text = "Henlo World"
+
+[node name="_container" type="GridContainer" parent="_state"]
+offset_left = 212.0
+offset_top = 294.0
+offset_right = 1041.0
+offset_bottom = 653.0
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button_a" type="Button" parent="_state/_container"]
+offset_right = 259.0
+offset_bottom = 77.0
+theme_override_font_sizes/font_size = 50
+text = "Increase A"
+
+[node name="button_b" type="Button" parent="_state/_container"]
+offset_left = 263.0
+offset_right = 522.0
+offset_bottom = 77.0
+theme_override_font_sizes/font_size = 50
+text = "Increase B"
+
+[node name="button_c" type="Button" parent="_state/_container"]
+offset_top = 81.0
+offset_right = 259.0
+offset_bottom = 158.0
+theme_override_font_sizes/font_size = 50
+text = "Reset"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="_timer" type="Node" parent="."]
+script = ExtResource( "2_dfu3g" )
+
+[connection signal="pressed" from="_state/_container/button_a" to="_state" method="_on_button_a_pressed"]
+[connection signal="pressed" from="_state/_container/button_b" to="_state" method="_on_button_b_pressed"]
+[connection signal="pressed" from="_state/_container/button_c" to="_state" method="_on_button_c_pressed"]
